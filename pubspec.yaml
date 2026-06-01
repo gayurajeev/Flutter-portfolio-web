@@ -1,0 +1,32 @@
+name: portfolio_web
+description: Gayathry Rajeev — Data Analyst Portfolio
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  google_fonts: ^6.1.0
+  url_launcher: ^6.2.4
+  visibility_detector: ^0.4.0+2
+  flutter_animate: ^4.5.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assests/profile.png
+    - assests/project1.png
+    - assests/project2.jpg
+    - assests/project3.png
+    - assests/project4.png
+    - assests/project5.png
