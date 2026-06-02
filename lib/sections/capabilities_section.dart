@@ -143,6 +143,7 @@ class _CapabilitiesSectionState extends State<CapabilitiesSection> {
                     isLast: colIdx == rowSkills.length - 1,
                     visible: _visible,
                     delay: (rowIdx * cols + colIdx) * 60,
+                    isMobile: isMobile,
                   ),
                 );
               }),
@@ -160,6 +161,7 @@ class _SkillCell extends StatefulWidget {
   final bool isLast;
   final bool visible;
   final int delay;
+  final bool isMobile;
 
   const _SkillCell({
     required this.name,
@@ -167,6 +169,7 @@ class _SkillCell extends StatefulWidget {
     required this.isLast,
     required this.visible,
     required this.delay,
+    required this.isMobile,
   });
 
   @override
@@ -192,11 +195,20 @@ class _SkillCellState extends State<_SkillCell> {
                 : const BorderSide(color: AppColors.cardBorder),
           ),
         ),
-        padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 28),
+        padding: EdgeInsets.symmetric(
+          horizontal: widget.isMobile ? 16 : 28,
+          vertical: widget.isMobile ? 20 : 28,
+        ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(widget.name, style: AppTextStyles.skillName),
+            Expanded(
+              child: Text(
+                widget.name,
+                style: AppTextStyles.skillName,
+              ),
+            ),
+            const SizedBox(width: 8),
             Text(widget.number, style: AppTextStyles.skillNumber),
           ],
         ),
