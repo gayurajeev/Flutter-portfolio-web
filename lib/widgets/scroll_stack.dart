@@ -55,6 +55,8 @@ class _ScrollStackState extends State<ScrollStack> {
               child: widget.children[i],
             ),
           ),
+        // Add a spacer equal to screen height so the last item stays pinned while scrolling
+        SizedBox(height: MediaQuery.of(context).size.height * 0.8),
         // The end element to determine when to unpin the stack
         SizedBox(
           key: _endAnchorKey,
@@ -151,7 +153,7 @@ class _ScrollStackItemState extends State<_ScrollStackItem> {
               final RenderBox? endBox = widget.endAnchorKey.currentContext?.findRenderObject() as RenderBox?;
               if (endBox != null) {
                 final double endY = endBox.localToGlobal(Offset.zero, ancestor: scrollRenderObject).dy;
-                final double unpinY = viewportHeight / 2; // Unpin when end reaches middle of screen
+                final double unpinY = viewportHeight * 0.15; // Unpin when end reaches near top of screen
                 
                 if (endY < unpinY) {
                   translateY -= (unpinY - endY);

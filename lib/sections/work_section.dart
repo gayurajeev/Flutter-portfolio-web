@@ -98,10 +98,10 @@ class _WorkSectionState extends State<WorkSection> {
               )
             else
               ScrollStack(
-                itemDistance: 100,
-                itemStackDistance: 30,
-                stackPosition: 0.20,
-                scaleEndPosition: 0.10,
+                itemDistance: 120,
+                itemStackDistance: 15,
+                stackPosition: 0.10,
+                scaleEndPosition: 0.05,
                 baseScale: 0.85,
                 itemScale: 0.03,
                 children: projects.asMap().entries.map((entry) {
@@ -183,7 +183,7 @@ class _ProjectEntryState extends State<_ProjectEntry> {
           top: BorderSide(color: AppColors.divider),
         ),
       ),
-      padding: EdgeInsets.fromLTRB(widget.hPad, 64, widget.hPad, 64),
+      padding: EdgeInsets.fromLTRB(widget.hPad, 48, widget.hPad, 48),
       child: widget.isMobile
           ? Column(
               crossAxisAlignment: CrossAxisAlignment.start,
