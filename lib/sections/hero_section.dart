@@ -32,35 +32,38 @@ class HeroSection extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Row(
-                children: [
-                  Container(
-                    width: 7,
-                    height: 7,
-                    decoration: const BoxDecoration(
-                      color: AppColors.accent,
-                      shape: BoxShape.circle,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
-                  Expanded(
-                    child: FittedBox(
-                      alignment: Alignment.centerLeft,
-                      fit: BoxFit.scaleDown,
-                      child: Text(
-                        'PORTFOLIO  ·  VOL. 01  ·  TRIVANDRUM, IN',
-                        style: AppTextStyles.heroTagline,
+              Expanded(
+                child: Row(
+                  children: [
+                    Container(
+                      width: 7,
+                      height: 7,
+                      decoration: const BoxDecoration(
+                        color: AppColors.accent,
+                        shape: BoxShape.circle,
                       ),
                     ),
-                  ),
-                ],
+                    const SizedBox(width: 10),
+                    Flexible(
+                      child: FittedBox(
+                        alignment: Alignment.centerLeft,
+                        fit: BoxFit.scaleDown,
+                        child: Text(
+                          'PORTFOLIO  ·  VOL. 01  ·  TRIVANDRUM, IN',
+                          style: AppTextStyles.heroTagline,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
               ),
-              const Spacer(),
-              if (!isMobile)
+              if (!isMobile) ...[
+                const SizedBox(width: 16),
                 Text(
-                  "52° 7' N — DATA / DESIGN / DECISIONS",
+                  '52° 7\' N — DATA / DESIGN / DECISIONS',
                   style: AppTextStyles.heroTagline,
                 ),
+              ],
             ],
           )
               .animate()
