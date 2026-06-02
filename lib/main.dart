@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'theme/app_theme.dart';
 import 'app.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,12 @@ class MyApp extends StatelessWidget {
       title: 'Gayathry Rajeev — Data Analyst Portfolio',
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
-      home: const PortfolioApp(),
+      onGenerateRoute: (settings) {
+        if (settings.name == '/resume') {
+          launchUrl(Uri.base.resolve('/resume/resumeV1.pdf'));
+        }
+        return MaterialPageRoute(builder: (_) => const PortfolioApp());
+      },
     );
   }
 }
