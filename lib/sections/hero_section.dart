@@ -16,17 +16,22 @@ class HeroSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     final isMobile = width < 768;
 
     return Container(
       width: double.infinity,
+      constraints: BoxConstraints(
+        minHeight: height > 180 ? height - 80 - 100 : 0, // Approx Nav (80) + Ticker (100)
+      ),
       color: Colors.transparent,
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 24 : 56,
-        vertical: isMobile ? 40 : 56,
+        vertical: isMobile ? 24 : 24,
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Top meta row
           Row(
@@ -70,7 +75,7 @@ class HeroSection extends StatelessWidget {
               .fadeIn(duration: 600.ms, delay: 200.ms)
               .slideY(begin: -0.1, end: 0),
 
-          SizedBox(height: isMobile ? 40 : 60),
+          SizedBox(height: isMobile ? 32 : 32),
 
           // Big name
           isMobile
@@ -85,7 +90,7 @@ class HeroSection extends StatelessWidget {
                   .fadeIn(duration: 800.ms, delay: 400.ms)
                   .slideY(begin: 0.05, end: 0),
 
-          SizedBox(height: isMobile ? 32 : 48),
+          SizedBox(height: isMobile ? 24 : 24),
 
           // Horizontal divider
           Container(
@@ -93,7 +98,7 @@ class HeroSection extends StatelessWidget {
             color: AppColors.divider,
           ),
 
-          SizedBox(height: isMobile ? 32 : 48),
+          SizedBox(height: isMobile ? 24 : 24),
 
           // Description row
           isMobile
