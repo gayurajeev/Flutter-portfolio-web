@@ -77,7 +77,7 @@ const List<Project> projects = [
       'Category filters: hotels, malls, hospitals, petrol pumps, beaches.',
       'One-tap SOS to pre-saved emergency contacts.',
     ],
-    tags: ['PRODUCT THINKING', 'GEO DATA', 'UX RESEARCH'],
+    tags: ['PRODUCT THINKING', 'GEO DATA', 'UX RESEARCH', 'FLUTTER'],
     imagePath: 'assests/project5.png',
     imageLeft: false,
   ),
