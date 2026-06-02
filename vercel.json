@@ -2,13 +2,14 @@
   "version": 2,
   "name": "gayathry-portfolio",
   "outputDirectory": "build/web",
-  "buildCommand": "flutter/bin/flutter build web --release",
+  "buildCommand": "flutter/bin/flutter build web --release && cp -r web/resume build/web/resume",
   "installCommand": "git clone https://github.com/flutter/flutter.git --depth 1 -b stable flutter",
   "framework": null,
   "routes": [
     {
       "src": "/resume",
-      "dest": "/resume/resumeV1.pdf"
+      "headers": { "Location": "/resume/resumeV1.pdf" },
+      "status": 302
     },
     {
       "src": "/assets/(.*)",
