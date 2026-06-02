@@ -43,9 +43,15 @@ class HeroSection extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(width: 10),
-                  Text(
-                    'PORTFOLIO  ·  VOL. 01  ·  TRIVANDRUM, IN',
-                    style: AppTextStyles.heroTagline,
+                  Expanded(
+                    child: FittedBox(
+                      alignment: Alignment.centerLeft,
+                      fit: BoxFit.scaleDown,
+                      child: Text(
+                        'PORTFOLIO  ·  VOL. 01  ·  TRIVANDRUM, IN',
+                        style: AppTextStyles.heroTagline,
+                      ),
+                    ),
                   ),
                 ],
               ),

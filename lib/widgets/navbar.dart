@@ -80,16 +80,27 @@ class _NavBarState extends State<NavBar> {
               isOutlined: false,
             ),
           ] else ...[
-            _SocialButton(
-              label: 'LINKEDIN',
-              url: 'https://www.linkedin.com/in/gayathry-rajeev/',
-              isOutlined: true,
-            ),
-            const SizedBox(width: 8),
-            _SocialButton(
-              label: 'GITHUB',
-              url: 'https://github.com/gayurajeev',
-              isOutlined: false,
+            Expanded(
+              child: FittedBox(
+                alignment: Alignment.centerRight,
+                fit: BoxFit.scaleDown,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    _SocialButton(
+                      label: 'LINKEDIN',
+                      url: 'https://www.linkedin.com/in/gayathry-rajeev/',
+                      isOutlined: true,
+                    ),
+                    const SizedBox(width: 8),
+                    _SocialButton(
+                      label: 'GITHUB',
+                      url: 'https://github.com/gayurajeev',
+                      isOutlined: false,
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ],
