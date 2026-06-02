@@ -74,11 +74,16 @@ class HeroSection extends StatelessWidget {
 
           // Big name
           isMobile
-              ? Center(child: _buildHeroName(isMobile))
+              ? Center(
+                  child: _buildHeroName(isMobile)
+                      .animate()
+                      .fadeIn(duration: 800.ms, delay: 400.ms)
+                      .slideY(begin: 0.05, end: 0),
+                )
               : _buildHeroName(isMobile)
-              .animate()
-              .fadeIn(duration: 800.ms, delay: 400.ms)
-              .slideY(begin: 0.05, end: 0),
+                  .animate()
+                  .fadeIn(duration: 800.ms, delay: 400.ms)
+                  .slideY(begin: 0.05, end: 0),
 
           SizedBox(height: isMobile ? 32 : 48),
 
@@ -179,16 +184,16 @@ class HeroSection extends StatelessWidget {
           fontSize: 22,
           color: AppColors.textPrimary,
         ),
-        children: const [
-          TextSpan(text: 'Industrial engineering student turning\n'),
-          TextSpan(
+        children: [
+          TextSpan(text: isMobile ? 'Industrial engineering student turning ' : 'Industrial engineering student turning\n'),
+          const TextSpan(
             text: 'messy spreadsheets ',
             style: TextStyle(
               color: AppColors.accent,
               fontStyle: FontStyle.italic,
             ),
           ),
-          TextSpan(text: 'into the kind\nof dashboards that make a room of\nexecutives actually agree on something.'),
+          TextSpan(text: isMobile ? 'into the kind of dashboards that make a room of executives actually agree on something.' : 'into the kind\nof dashboards that make a room of\nexecutives actually agree on something.'),
         ],
       ),
     )
