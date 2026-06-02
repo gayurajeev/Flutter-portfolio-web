@@ -123,7 +123,7 @@ class _AboutSectionState extends State<AboutSection> {
         ),
         const SizedBox(height: 24),
         Text(
-          'My toolkit lives between two worlds — Python & R for the analytical heavy lifting, Tableau & Excel for stakeholder-ready stories, and a foundation in operations research for the supply chain, logistics and optimization problems most people would rather not touch.',
+          'My toolkit lives between two worlds — Python & R for the analytical heavy lifting, Tableau & Excel for stakeholder-ready stories, and a foundation in data analysis for the complex logistics and optimization problems most people would rather not touch.',
           style: AppTextStyles.body,
         ),
       ],
@@ -141,7 +141,7 @@ class _AboutSectionState extends State<AboutSection> {
         _MetaItem(label: 'DISCIPLINE', value: 'Industrial Eng.'),
         _MetaItem(label: 'BASED IN', value: 'Kerala, India'),
         _MetaItem(label: 'STACK', value: 'SQL · Py · R · Tableau'),
-        _MetaItem(label: 'FOCUS', value: 'OR · Supply Chain'),
+        _MetaItem(label: 'FOCUS', value: 'Data Analytics'),
         _MetaItem(label: 'OPEN TO', value: 'Internships & Roles'),
       ],
     )

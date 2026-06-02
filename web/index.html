@@ -6,41 +6,145 @@
   <meta charset="UTF-8">
   <meta content="IE=Edge" http-equiv="X-UA-Compatible">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Gayathry Rajeev — Data Analyst & Industrial Engineering student. Portfolio showcasing Python, R, SQL, Tableau and Excel projects.">
-  <meta name="keywords" content="Gayathry Rajeev, Data Analyst, Portfolio, Python, Tableau, SQL, Operations Research, Flutter">
+
+  <!-- Primary SEO -->
+  <title>Gayathry Rajeev — Data Analyst & Industrial Engineering Portfolio</title>
+  <meta name="description" content="Gayathry Rajeev is a data analyst and industrial engineering student from Trivandrum, India. Portfolio of Python, R, SQL, Tableau, and Excel projects including IBM HR Analytics, US Accidents EDA, Coffee Sales Dashboard, and more.">
+  <meta name="keywords" content="Gayathry Rajeev, Data Analyst, Industrial Engineering, Portfolio, Python, Tableau, SQL, R, Excel, Data Analytics, Supply Chain, Flutter, Trivandrum, India, Data Visualization, Dashboard">
   <meta name="author" content="Gayathry Rajeev">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://gayathry.xyphx.com/">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="Gayathry Rajeev — Data Analyst Portfolio">
-  <meta property="og:description" content="Industrial engineering student turning messy spreadsheets into dashboards that make executives actually agree on something.">
+  <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://gayurajeev.github.io/">
+  <meta property="og:url" content="https://gayathry.xyphx.com/">
+  <meta property="og:title" content="Gayathry Rajeev — Data Analyst & Industrial Engineering Portfolio">
+  <meta property="og:description" content="Industrial engineering student turning messy spreadsheets into dashboards that make executives actually agree on something. Python · R · SQL · Tableau · Excel.">
+  <meta property="og:image" content="https://gayathry.xyphx.com/icons/Icon-512.png">
+  <meta property="og:image:width" content="512">
+  <meta property="og:image:height" content="512">
+  <meta property="og:site_name" content="Gayathry Rajeev Portfolio">
+  <meta property="og:locale" content="en_IN">
 
-  <!-- Twitter -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://gayathry.xyphx.com/">
   <meta name="twitter:title" content="Gayathry Rajeev — Data Analyst Portfolio">
-  <meta name="twitter:description" content="Industrial engineering student turning messy spreadsheets into dashboards that make executives agree.">
+  <meta name="twitter:description" content="Industrial engineering student turning messy spreadsheets into dashboards that make executives agree. Python · R · SQL · Tableau · Excel.">
+  <meta name="twitter:image" content="https://gayathry.xyphx.com/icons/Icon-512.png">
+  <meta name="twitter:creator" content="@gayurajeev">
+
+  <!-- LinkedIn -->
+  <meta property="profile:first_name" content="Gayathry">
+  <meta property="profile:last_name" content="Rajeev">
+
+  <!-- Geographic -->
+  <meta name="geo.region" content="IN-KL">
+  <meta name="geo.placename" content="Trivandrum, Kerala, India">
 
   <!-- iOS meta tags & icons -->
   <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="apple-mobile-web-app-title" content="Gayathry Rajeev">
   <link rel="apple-touch-icon" href="icons/Icon-192.png">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="favicon.png"/>
+  <link rel="shortcut icon" href="favicon.png"/>
 
-  <title>Gayathry Rajeev — Data Analyst Portfolio</title>
+  <!-- Theme color -->
+  <meta name="theme-color" content="#0A0F1E">
+  <meta name="msapplication-TileColor" content="#0A0F1E">
+
+  <!-- Web App Manifest -->
   <link rel="manifest" href="manifest.json">
+
+  <!-- Preconnect for performance -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Structured Data / JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Gayathry Rajeev",
+    "url": "https://gayathry.xyphx.com",
+    "image": "https://gayathry.xyphx.com/icons/Icon-512.png",
+    "jobTitle": "Data Analyst & Industrial Engineering Student",
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "Engineering College, Kerala"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Trivandrum",
+      "addressRegion": "Kerala",
+      "addressCountry": "IN"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/in/gayathry-rajeev/",
+      "https://github.com/gayurajeev"
+    ],
+    "knowsAbout": ["Python", "R", "SQL", "Tableau", "Excel", "Data Analytics", "Supply Chain Management", "Data Visualization", "Industrial Engineering", "Flutter"],
+    "email": "gayathryrs.22@gmail.com",
+    "description": "Industrial engineering student and data analyst turning messy spreadsheets into dashboards that make executives actually agree on something."
+  }
+  </script>
 
   <style>
     body {
       margin: 0;
+      padding: 0;
       background-color: #0A0F1E;
+      font-family: sans-serif;
+    }
+    /* Loading screen */
+    #loading {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: #0A0F1E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease;
+    }
+    #loading.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    .loading-text {
+      color: #62B8F6;
+      font-size: 14px;
+      letter-spacing: 3px;
+      font-family: 'Inter', sans-serif;
+      animation: pulse 1.5s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.4; }
+      50% { opacity: 1; }
     }
   </style>
 </head>
 <body>
+  <div id="loading">
+    <span class="loading-text">GAYATHRY RAJEEV</span>
+  </div>
+
   <script src="flutter_bootstrap.js" async></script>
+
+  <script>
+    // Hide loading screen once Flutter app is ready
+    window.addEventListener('flutter-first-frame', function() {
+      var loading = document.getElementById('loading');
+      if (loading) {
+        loading.classList.add('hidden');
+        setTimeout(function() { loading.remove(); }, 600);
+      }
+    });
+  </script>
 </body>
 </html>

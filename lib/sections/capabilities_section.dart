@@ -20,7 +20,7 @@ class _CapabilitiesSectionState extends State<CapabilitiesSection> {
     {'name': 'Python', 'number': '04'},
     {'name': 'R', 'number': '05'},
     {'name': 'Data Visualization', 'number': '06'},
-    {'name': 'Operations Research', 'number': '07'},
+    {'name': 'Data Analytics', 'number': '07'},
     {'name': 'Flutter', 'number': '08'},
     {'name': 'Web Development', 'number': '09'},
   ];

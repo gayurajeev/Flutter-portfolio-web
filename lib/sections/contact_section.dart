@@ -99,7 +99,7 @@ class _ContactSectionState extends State<ContactSection> {
                         ),
                         const SizedBox(height: 8),
                         Text(
-                          'DESIGNED & CODED WITH LOVABLE  ·  VOL. 01',
+                          'MADE WITH FLUTTER  ·  VOL. 01',
                           style: AppTextStyles.footerText,
                         ),
                       ],
@@ -112,7 +112,7 @@ class _ContactSectionState extends State<ContactSection> {
                         ),
                         const Spacer(),
                         Text(
-                          'DESIGNED & CODED WITH LOVABLE  ·  VOL. 01',
+                          'MADE WITH FLUTTER  ·  VOL. 01',
                           style: AppTextStyles.footerText,
                         ),
                       ],
@@ -203,7 +203,7 @@ class _ContactSectionState extends State<ContactSection> {
         _ContactRow(
           label: 'LINKEDIN',
           value: 'IN/GAYATHRY-RAJEEV',
-          url: 'https://linkedin.com/in/gayathry-rajeev',
+          url: 'https://www.linkedin.com/in/gayathry-rajeev/',
         ),
         _ContactRow(
           label: 'GITHUB',

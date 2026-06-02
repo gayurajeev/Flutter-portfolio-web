@@ -4,7 +4,14 @@ import '../theme/app_theme.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HeroSection extends StatelessWidget {
-  const HeroSection({super.key});
+  final VoidCallback? onWorkTap;
+  final VoidCallback? onContactTap;
+
+  const HeroSection({
+    super.key,
+    this.onWorkTap,
+    this.onContactTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -25,33 +32,6 @@ class HeroSection extends StatelessWidget {
           Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              // Profile image
-              Container(
-                width: 72,
-                height: 72,
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(
-                    color: AppColors.cardBorder,
-                    width: 2,
-                  ),
-                ),
-                child: ClipOval(
-                  child: Image.asset(
-                    'assests/profile.png',
-                    fit: BoxFit.cover,
-                    errorBuilder: (_, __, ___) => Container(
-                      color: AppColors.surface,
-                      child: const Icon(
-                        Icons.person,
-                        color: AppColors.textMuted,
-                        size: 36,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-              const SizedBox(width: 16),
               Row(
                 children: [
                   Container(
@@ -130,19 +110,51 @@ class HeroSection extends StatelessWidget {
 
   Widget _buildHeroName(bool isMobile) {
     final fontSize = isMobile ? 64.0 : 120.0;
-    return RichText(
-      text: TextSpan(
-        children: [
-          TextSpan(
-            text: 'Gayathry\n',
-            style: AppTextStyles.heroTitle.copyWith(fontSize: fontSize),
+    return Wrap(
+      crossAxisAlignment: WrapCrossAlignment.center,
+      spacing: isMobile ? 40 : 80,
+      runSpacing: 24,
+      children: [
+        RichText(
+          text: TextSpan(
+            children: [
+              TextSpan(
+                text: 'Gayathry\n',
+                style: AppTextStyles.heroTitle.copyWith(fontSize: fontSize, height: 1.05),
+              ),
+              TextSpan(
+                text: 'Rajeev.',
+                style: AppTextStyles.heroTitleAccent.copyWith(fontSize: fontSize, height: 1.05),
+              ),
+            ],
           ),
-          TextSpan(
-            text: 'Rajeev.',
-            style: AppTextStyles.heroTitleAccent.copyWith(fontSize: fontSize),
+        ),
+        Container(
+          width: isMobile ? 160 : 240,
+          height: isMobile ? 160 : 240,
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            border: Border.all(
+              color: AppColors.cardBorder,
+              width: isMobile ? 3 : 4,
+            ),
           ),
-        ],
-      ),
+          child: ClipOval(
+            child: Image.asset(
+              'assests/profile.png',
+              fit: BoxFit.cover,
+              errorBuilder: (_, __, ___) => Container(
+                color: AppColors.surface,
+                child: Icon(
+                  Icons.person,
+                  color: AppColors.textMuted,
+                  size: isMobile ? 80 : 120,
+                ),
+              ),
+            ),
+          ),
+        ),
+      ],
     );
   }
 
@@ -176,7 +188,7 @@ class HeroSection extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'I work where statistics meets operations — SQL, Python and Tableau for the analysis, optimization and OR for the harder questions about why a process behaves the way it does.',
+          'I work where statistics meets data — SQL, Python and Tableau for the analysis, and optimization for the harder questions about why a process behaves the way it does.',
           style: AppTextStyles.heroDescription,
         ),
         const SizedBox(height: 32),
@@ -185,13 +197,14 @@ class HeroSection extends StatelessWidget {
             _HeroButton(
               label: 'See selected work',
               isPrimary: true,
-              onTap: () {},
+              onTap: onWorkTap ?? () {},
             ),
             const SizedBox(width: 16),
             _HeroButton(
               label: 'Get in touch',
               isPrimary: false,
-              onTap: () => launchUrl(Uri.parse('mailto:gayathryrs.22@gmail.com')),
+              onTap: onContactTap ??
+                  () => launchUrl(Uri.parse('mailto:gayathryrs.22@gmail.com')),
             ),
           ],
         ),

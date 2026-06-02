@@ -70,7 +70,7 @@ class _NavBarState extends State<NavBar> {
             const SizedBox(width: 48),
             _SocialButton(
               label: 'LINKEDIN',
-              url: 'https://linkedin.com/in/gayathry-rajeev',
+              url: 'https://www.linkedin.com/in/gayathry-rajeev/',
               isOutlined: true,
             ),
             const SizedBox(width: 12),
@@ -82,7 +82,7 @@ class _NavBarState extends State<NavBar> {
           ] else ...[
             _SocialButton(
               label: 'LINKEDIN',
-              url: 'https://linkedin.com/in/gayathry-rajeev',
+              url: 'https://www.linkedin.com/in/gayathry-rajeev/',
               isOutlined: true,
             ),
             const SizedBox(width: 8),

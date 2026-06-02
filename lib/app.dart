@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import '../theme/app_theme.dart';
 import '../widgets/navbar.dart';
 import '../widgets/skills_ticker.dart';
@@ -18,6 +17,7 @@ class PortfolioApp extends StatefulWidget {
 
 class _PortfolioAppState extends State<PortfolioApp> {
   final ScrollController _scrollController = ScrollController();
+  final GlobalKey _heroKey = GlobalKey();
   final GlobalKey _workKey = GlobalKey();
   final GlobalKey _aboutKey = GlobalKey();
   final GlobalKey _skillsKey = GlobalKey();
@@ -46,12 +46,12 @@ class _PortfolioAppState extends State<PortfolioApp> {
   }
 
   void _scrollTo(GlobalKey key) {
-    final context = key.currentContext;
-    if (context != null) {
+    final ctx = key.currentContext;
+    if (ctx != null) {
       Scrollable.ensureVisible(
-        context,
-        duration: const Duration(milliseconds: 800),
-        curve: Curves.easeInOut,
+        ctx,
+        duration: const Duration(milliseconds: 900),
+        curve: Curves.easeInOutCubic,
       );
     }
   }
@@ -88,9 +88,15 @@ class _PortfolioAppState extends State<PortfolioApp> {
               child: Column(
                 children: [
                   // Hero
-                  const HeroSection(),
+                  KeyedSubtree(
+                    key: _heroKey,
+                    child: HeroSection(
+                      onWorkTap: () => _scrollTo(_workKey),
+                      onContactTap: () => _scrollTo(_contactKey),
+                    ),
+                  ),
 
-                  // Skills Ticker (between hero and about)
+                  // Skills Ticker
                   const SkillsTicker(),
 
                   // About
@@ -111,7 +117,7 @@ class _PortfolioAppState extends State<PortfolioApp> {
                     child: const WorkSection(),
                   ),
 
-                  // Contact
+                  // Contact + Footer
                   KeyedSubtree(
                     key: _contactKey,
                     child: const ContactSection(),
