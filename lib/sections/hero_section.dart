@@ -20,7 +20,7 @@ class HeroSection extends StatelessWidget {
 
     return Container(
       width: double.infinity,
-      color: AppColors.background,
+      color: Colors.transparent,
       padding: EdgeInsets.symmetric(
         horizontal: isMobile ? 24 : 56,
         vertical: isMobile ? 40 : 56,
@@ -126,14 +126,37 @@ class HeroSection extends StatelessWidget {
 
   Widget _buildHeroName(bool isMobile) {
     final fontSize = isMobile ? 64.0 : 120.0;
-    return Wrap(
-      alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
-      crossAxisAlignment: WrapCrossAlignment.center,
-      spacing: isMobile ? 40 : 80,
-      runSpacing: 24,
+    if (isMobile) {
+      return Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: [
+          RichText(
+            textAlign: TextAlign.center,
+            text: TextSpan(
+              children: [
+                TextSpan(
+                  text: 'Gayathry\n',
+                  style: AppTextStyles.heroTitle.copyWith(fontSize: fontSize, height: 1.05),
+                ),
+                TextSpan(
+                  text: 'Rajeev.',
+                  style: AppTextStyles.heroTitleAccent.copyWith(fontSize: fontSize, height: 1.05),
+                ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 40),
+          _buildProfileImage(isMobile),
+        ],
+      );
+    }
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         RichText(
-          textAlign: isMobile ? TextAlign.center : TextAlign.left,
+          textAlign: TextAlign.left,
           text: TextSpan(
             children: [
               TextSpan(
@@ -147,32 +170,36 @@ class HeroSection extends StatelessWidget {
             ],
           ),
         ),
-        Container(
-          width: isMobile ? 160 : 240,
-          height: isMobile ? 160 : 240,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: AppColors.cardBorder,
-              width: isMobile ? 3 : 4,
-            ),
-          ),
-          child: ClipOval(
-            child: Image.asset(
-              'assests/profile.png',
-              fit: BoxFit.cover,
-              errorBuilder: (_, __, ___) => Container(
-                color: AppColors.surface,
-                child: Icon(
-                  Icons.person,
-                  color: AppColors.textMuted,
-                  size: isMobile ? 80 : 120,
-                ),
-              ),
+        _buildProfileImage(isMobile),
+      ],
+    );
+  }
+
+  Widget _buildProfileImage(bool isMobile) {
+    return Container(
+      width: isMobile ? 160 : 240,
+      height: isMobile ? 160 : 240,
+      decoration: BoxDecoration(
+        shape: BoxShape.circle,
+        border: Border.all(
+          color: AppColors.cardBorder,
+          width: isMobile ? 3 : 4,
+        ),
+      ),
+      child: ClipOval(
+        child: Image.asset(
+          'assests/profile.png',
+          fit: BoxFit.cover,
+          errorBuilder: (_, __, ___) => Container(
+            color: AppColors.surface,
+            child: Icon(
+              Icons.person,
+              color: AppColors.textMuted,
+              size: isMobile ? 80 : 120,
             ),
           ),
         ),
-      ],
+      ),
     );
   }
 
