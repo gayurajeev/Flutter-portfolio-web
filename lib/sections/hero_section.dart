@@ -93,7 +93,7 @@ class HeroSection extends StatelessWidget {
           // Description row
           isMobile
               ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     _buildHeroTagline(isMobile),
                     const SizedBox(height: 32),
@@ -173,7 +173,7 @@ class HeroSection extends StatelessWidget {
 
   Widget _buildHeroTagline(bool isMobile) {
     return RichText(
-      textAlign: isMobile ? TextAlign.center : TextAlign.left,
+      textAlign: TextAlign.left,
       text: TextSpan(
         style: AppTextStyles.bodyLarge.copyWith(
           fontSize: 22,
@@ -199,16 +199,16 @@ class HeroSection extends StatelessWidget {
 
   Widget _buildHeroRight(bool isMobile) {
     return Column(
-      crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
           'I work where statistics meets data — SQL, Python and Tableau for the analysis, and optimization for the harder questions about why a process behaves the way it does.',
           style: AppTextStyles.heroDescription,
-          textAlign: isMobile ? TextAlign.center : TextAlign.left,
+          textAlign: TextAlign.left,
         ),
         const SizedBox(height: 32),
         Wrap(
-          alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
+          alignment: WrapAlignment.start,
           spacing: 16,
           runSpacing: 16,
           children: [
