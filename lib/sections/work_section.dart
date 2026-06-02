@@ -4,6 +4,7 @@ import 'package:visibility_detector/visibility_detector.dart';
 import '../theme/app_theme.dart';
 import '../models/project.dart';
 import '../data/projects_data.dart';
+import '../widgets/scroll_stack.dart';
 
 class WorkSection extends StatefulWidget {
   const WorkSection({super.key});
@@ -80,17 +81,25 @@ class _WorkSectionState extends State<WorkSection> {
             ),
 
             // Projects
-            ...projects.asMap().entries.map((entry) {
-              final idx = entry.key;
-              final project = entry.value;
-              return _ProjectEntry(
-                project: project,
-                isMobile: isMobile,
-                hPad: hPad,
-                visible: _visible,
-                delay: idx * 100,
-              );
-            }),
+            ScrollStack(
+              itemDistance: 100,
+              itemStackDistance: 30,
+              stackPosition: 0.20,
+              scaleEndPosition: 0.10,
+              baseScale: 0.85,
+              itemScale: 0.03,
+              children: projects.asMap().entries.map((entry) {
+                final idx = entry.key;
+                final project = entry.value;
+                return _ProjectEntry(
+                  project: project,
+                  isMobile: isMobile,
+                  hPad: hPad,
+                  visible: _visible,
+                  delay: idx * 100,
+                );
+              }).toList(),
+            ),
 
             const SizedBox(height: 80),
           ],
@@ -153,6 +162,7 @@ class _ProjectEntryState extends State<_ProjectEntry> {
 
     return Container(
       decoration: const BoxDecoration(
+        color: AppColors.background,
         border: Border(
           top: BorderSide(color: AppColors.divider),
         ),
