@@ -5,6 +5,7 @@ import '../theme/app_theme.dart';
 import '../models/project.dart';
 import '../data/projects_data.dart';
 import '../widgets/scroll_stack.dart';
+import '../widgets/scroll_reveal.dart';
 
 class WorkSection extends StatefulWidget {
   const WorkSection({super.key});
@@ -81,25 +82,40 @@ class _WorkSectionState extends State<WorkSection> {
             ),
 
             // Projects
-            ScrollStack(
-              itemDistance: 100,
-              itemStackDistance: 30,
-              stackPosition: 0.20,
-              scaleEndPosition: 0.10,
-              baseScale: 0.85,
-              itemScale: 0.03,
-              children: projects.asMap().entries.map((entry) {
-                final idx = entry.key;
-                final project = entry.value;
-                return _ProjectEntry(
-                  project: project,
-                  isMobile: isMobile,
-                  hPad: hPad,
-                  visible: _visible,
-                  delay: idx * 100,
-                );
-              }).toList(),
-            ),
+            if (isMobile)
+              Column(
+                children: projects.asMap().entries.map((entry) {
+                  final idx = entry.key;
+                  final project = entry.value;
+                  return _ProjectEntry(
+                    project: project,
+                    isMobile: isMobile,
+                    hPad: hPad,
+                    visible: _visible,
+                    delay: idx * 100,
+                  );
+                }).toList(),
+              )
+            else
+              ScrollStack(
+                itemDistance: 100,
+                itemStackDistance: 30,
+                stackPosition: 0.20,
+                scaleEndPosition: 0.10,
+                baseScale: 0.85,
+                itemScale: 0.03,
+                children: projects.asMap().entries.map((entry) {
+                  final idx = entry.key;
+                  final project = entry.value;
+                  return _ProjectEntry(
+                    project: project,
+                    isMobile: isMobile,
+                    hPad: hPad,
+                    visible: _visible,
+                    delay: idx * 100,
+                  );
+                }).toList(),
+              ),
 
             const SizedBox(height: 80),
           ],
@@ -304,9 +320,11 @@ class _ProjectEntryState extends State<_ProjectEntry> {
           style: AppTextStyles.projectSubtitle,
         ),
         const SizedBox(height: 24),
-        Text(
-          widget.project.description,
+        ScrollReveal(
+          text: widget.project.description,
           style: AppTextStyles.body,
+          baseOpacity: 0.1,
+          blurStrength: 4.0,
         ),
         const SizedBox(height: 24),
         ...widget.project.bullets.map(
