@@ -74,7 +74,7 @@ class _ScrollRevealState extends State<ScrollReveal> {
 
             // Words animation progress
             final double startY = viewportHeight * 0.9;
-            final double endY = viewportHeight * 0.6;
+            final double endY = viewportHeight * 0.75;
             progress = ((startY - y) / (startY - endY)).clamp(0.0, 1.0);
           }
         } catch (_) {}

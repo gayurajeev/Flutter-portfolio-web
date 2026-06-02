@@ -188,7 +188,7 @@ class _SkillCellState extends State<_SkillCell> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 250),
         decoration: BoxDecoration(
-          color: _hovered ? AppColors.surface : Colors.transparent,
+          color: _hovered ? AppColors.accent.withOpacity(0.1) : Colors.transparent,
           border: Border(
             right: widget.isLast
                 ? BorderSide.none
