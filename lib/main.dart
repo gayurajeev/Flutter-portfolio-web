@@ -22,7 +22,7 @@ class MyApp extends StatelessWidget {
       theme: buildAppTheme(),
       onGenerateRoute: (settings) {
         if (settings.name == '/resume') {
-          launchUrl(Uri.base.resolve('/resume/resumeV1.pdf'));
+          launchUrl(Uri.base.resolve('/resume/resumeV2.pdf'));
         }
         return MaterialPageRoute(builder: (_) => const PortfolioApp());
       },
