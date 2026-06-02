@@ -3,8 +3,10 @@ import 'package:flutter/services.dart';
 import 'theme/app_theme.dart';
 import 'app.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
