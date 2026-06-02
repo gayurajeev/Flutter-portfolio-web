@@ -123,7 +123,7 @@ class _CapabilitiesSectionState extends State<CapabilitiesSection> {
   }
 
   Widget _buildSkillsGrid(bool isMobile) {
-    final cols = isMobile ? 2 : 3;
+    final cols = isMobile ? 1 : 3;
     final rows = (_skills.length / cols).ceil();
 
     return Column(

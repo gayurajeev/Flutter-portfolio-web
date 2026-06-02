@@ -8,6 +8,7 @@ import '../sections/capabilities_section.dart';
 import '../sections/work_section.dart';
 import '../sections/contact_section.dart';
 import 'package:web_smooth_scroll/web_smooth_scroll.dart';
+import 'package:flutter/foundation.dart';
 
 class PortfolioApp extends StatefulWidget {
   const PortfolioApp({super.key});
@@ -88,7 +89,9 @@ class _PortfolioAppState extends State<PortfolioApp> {
               controller: _scrollController,
               child: SingleChildScrollView(
                 controller: _scrollController,
-                physics: const NeverScrollableScrollPhysics(),
+                physics: (kIsWeb && (defaultTargetPlatform == TargetPlatform.iOS || defaultTargetPlatform == TargetPlatform.android))
+                    ? const BouncingScrollPhysics()
+                    : const NeverScrollableScrollPhysics(),
                 child: Column(
                   children: [
                     // Hero
