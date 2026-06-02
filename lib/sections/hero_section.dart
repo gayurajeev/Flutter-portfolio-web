@@ -231,7 +231,7 @@ class HeroSection extends StatelessWidget {
             _HeroButton(
               label: 'Resume',
               isPrimary: false,
-              onTap: () => launchUrl(Uri.base.resolve('/resume')),
+              onTap: () => launchUrl(Uri.base.resolve('/resume/resumeV1.pdf')),
             ),
           ],
         ),

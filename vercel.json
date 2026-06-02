@@ -5,27 +5,17 @@
   "buildCommand": "flutter/bin/flutter build web --release && cp -r web/resume build/web/resume",
   "installCommand": "git clone https://github.com/flutter/flutter.git --depth 1 -b stable flutter",
   "framework": null,
-  "routes": [
+  "redirects": [
     {
-      "src": "/resume",
-      "headers": { "Location": "/resume/resumeV1.pdf" },
-      "status": 302
-    },
+      "source": "/resume",
+      "destination": "/resume/resumeV1.pdf",
+      "permanent": false
+    }
+  ],
+  "rewrites": [
     {
-      "src": "/assets/(.*)",
-      "dest": "/assets/$1"
-    },
-    {
-      "src": "/(.*\\.js)",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*\\.wasm)",
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ],
   "headers": [
