@@ -73,7 +73,9 @@ class HeroSection extends StatelessWidget {
           SizedBox(height: isMobile ? 40 : 60),
 
           // Big name
-          _buildHeroName(isMobile)
+          isMobile
+              ? Center(child: _buildHeroName(isMobile))
+              : _buildHeroName(isMobile)
               .animate()
               .fadeIn(duration: 800.ms, delay: 400.ms)
               .slideY(begin: 0.05, end: 0),
@@ -91,11 +93,11 @@ class HeroSection extends StatelessWidget {
           // Description row
           isMobile
               ? Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    _buildHeroTagline(),
+                    _buildHeroTagline(isMobile),
                     const SizedBox(height: 32),
-                    _buildHeroRight(),
+                    _buildHeroRight(isMobile),
                   ],
                 )
               : Row(
@@ -103,12 +105,12 @@ class HeroSection extends StatelessWidget {
                   children: [
                     Expanded(
                       flex: 5,
-                      child: _buildHeroTagline(),
+                      child: _buildHeroTagline(isMobile),
                     ),
                     const SizedBox(width: 80),
                     Expanded(
                       flex: 4,
-                      child: _buildHeroRight(),
+                      child: _buildHeroRight(isMobile),
                     ),
                   ],
                 ),
@@ -120,11 +122,13 @@ class HeroSection extends StatelessWidget {
   Widget _buildHeroName(bool isMobile) {
     final fontSize = isMobile ? 64.0 : 120.0;
     return Wrap(
+      alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
       crossAxisAlignment: WrapCrossAlignment.center,
       spacing: isMobile ? 40 : 80,
       runSpacing: 24,
       children: [
         RichText(
+          textAlign: isMobile ? TextAlign.center : TextAlign.left,
           text: TextSpan(
             children: [
               TextSpan(
@@ -167,8 +171,9 @@ class HeroSection extends StatelessWidget {
     );
   }
 
-  Widget _buildHeroTagline() {
+  Widget _buildHeroTagline(bool isMobile) {
     return RichText(
+      textAlign: isMobile ? TextAlign.center : TextAlign.left,
       text: TextSpan(
         style: AppTextStyles.bodyLarge.copyWith(
           fontSize: 22,
@@ -192,16 +197,18 @@ class HeroSection extends StatelessWidget {
         .slideY(begin: 0.05, end: 0);
   }
 
-  Widget _buildHeroRight() {
+  Widget _buildHeroRight(bool isMobile) {
     return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+      crossAxisAlignment: isMobile ? CrossAxisAlignment.center : CrossAxisAlignment.start,
       children: [
         Text(
           'I work where statistics meets data — SQL, Python and Tableau for the analysis, and optimization for the harder questions about why a process behaves the way it does.',
           style: AppTextStyles.heroDescription,
+          textAlign: isMobile ? TextAlign.center : TextAlign.left,
         ),
         const SizedBox(height: 32),
         Wrap(
+          alignment: isMobile ? WrapAlignment.center : WrapAlignment.start,
           spacing: 16,
           runSpacing: 16,
           children: [
