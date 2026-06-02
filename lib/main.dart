@@ -21,8 +21,11 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: buildAppTheme(),
       onGenerateRoute: (settings) {
-        if (settings.name == '/resume') {
-          launchUrl(Uri.base.resolve('/resume/resumeV2.pdf'));
+        if (settings.name == '/resume' || settings.name == '/resume/') {
+          launchUrl(
+            Uri.base.resolve('/resume/resumeV2.pdf'),
+            webOnlyWindowName: '_self',
+          );
         }
         return MaterialPageRoute(builder: (_) => const PortfolioApp());
       },
