@@ -8,8 +8,7 @@
   "routes": [
     {
       "src": "/resume",
-      "headers": { "Location": "/resume/resumeV1.pdf" },
-      "status": 302
+      "dest": "/resume/resumeV1.pdf"
     },
     {
       "src": "/assets/(.*)",
