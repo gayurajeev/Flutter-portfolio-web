@@ -192,19 +192,25 @@ class HeroSection extends StatelessWidget {
           style: AppTextStyles.heroDescription,
         ),
         const SizedBox(height: 32),
-        Row(
+        Wrap(
+          spacing: 16,
+          runSpacing: 16,
           children: [
             _HeroButton(
               label: 'See selected work',
               isPrimary: true,
               onTap: onWorkTap ?? () {},
             ),
-            const SizedBox(width: 16),
             _HeroButton(
               label: 'Get in touch',
               isPrimary: false,
               onTap: onContactTap ??
                   () => launchUrl(Uri.parse('mailto:gayathryrs.22@gmail.com')),
+            ),
+            _HeroButton(
+              label: 'Resume',
+              isPrimary: false,
+              onTap: () => launchUrl(Uri.parse('/resume/resumeV1.pdf')),
             ),
           ],
         ),

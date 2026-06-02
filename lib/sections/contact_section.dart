@@ -160,34 +160,38 @@ class _ContactSectionState extends State<ContactSection> {
           child: GestureDetector(
             onTap: () =>
                 launchUrl(Uri.parse('mailto:gayathryrs.22@gmail.com')),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                AnimatedDefaultTextStyle(
-                  duration: const Duration(milliseconds: 200),
-                  style: AppTextStyles.emailLink.copyWith(
-                    color: _emailHovered
-                        ? AppColors.accent
-                        : AppColors.textPrimary,
-                    decorationColor: _emailHovered
-                        ? AppColors.accent
-                        : AppColors.textPrimary,
+            child: FittedBox(
+              fit: BoxFit.scaleDown,
+              alignment: Alignment.centerLeft,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  AnimatedDefaultTextStyle(
+                    duration: const Duration(milliseconds: 200),
+                    style: AppTextStyles.emailLink.copyWith(
+                      color: _emailHovered
+                          ? AppColors.accent
+                          : AppColors.textPrimary,
+                      decorationColor: _emailHovered
+                          ? AppColors.accent
+                          : AppColors.textPrimary,
+                    ),
+                    child: const Text('gayathryrs.22@gmail.com'),
                   ),
-                  child: const Text('gayathryrs.22@gmail.com'),
-                ),
-                const SizedBox(width: 12),
-                AnimatedDefaultTextStyle(
-                  duration: const Duration(milliseconds: 200),
-                  style: AppTextStyles.emailLink.copyWith(
-                    color: _emailHovered
-                        ? AppColors.accent
-                        : AppColors.textPrimary,
-                    decoration: TextDecoration.none,
+                  const SizedBox(width: 12),
+                  AnimatedDefaultTextStyle(
+                    duration: const Duration(milliseconds: 200),
+                    style: AppTextStyles.emailLink.copyWith(
+                      color: _emailHovered
+                          ? AppColors.accent
+                          : AppColors.textPrimary,
+                      decoration: TextDecoration.none,
+                    ),
+                    child: const Text('→'),
                   ),
-                  child: const Text('→'),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),

@@ -7,6 +7,7 @@ import '../sections/about_section.dart';
 import '../sections/capabilities_section.dart';
 import '../sections/work_section.dart';
 import '../sections/contact_section.dart';
+import 'package:web_smooth_scroll/web_smooth_scroll.dart';
 
 class PortfolioApp extends StatefulWidget {
   const PortfolioApp({super.key});
@@ -83,46 +84,50 @@ class _PortfolioAppState extends State<PortfolioApp> {
 
           // Scrollable content
           Expanded(
-            child: SingleChildScrollView(
+            child: WebSmoothScroll(
               controller: _scrollController,
-              child: Column(
-                children: [
-                  // Hero
-                  KeyedSubtree(
-                    key: _heroKey,
-                    child: HeroSection(
-                      onWorkTap: () => _scrollTo(_workKey),
-                      onContactTap: () => _scrollTo(_contactKey),
+              child: SingleChildScrollView(
+                controller: _scrollController,
+                physics: const NeverScrollableScrollPhysics(),
+                child: Column(
+                  children: [
+                    // Hero
+                    KeyedSubtree(
+                      key: _heroKey,
+                      child: HeroSection(
+                        onWorkTap: () => _scrollTo(_workKey),
+                        onContactTap: () => _scrollTo(_contactKey),
+                      ),
                     ),
-                  ),
 
-                  // Skills Ticker
-                  const SkillsTicker(),
+                    // Skills Ticker
+                    const SkillsTicker(),
 
-                  // About
-                  KeyedSubtree(
-                    key: _aboutKey,
-                    child: const AboutSection(),
-                  ),
+                    // About
+                    KeyedSubtree(
+                      key: _aboutKey,
+                      child: const AboutSection(),
+                    ),
 
-                  // Capabilities
-                  KeyedSubtree(
-                    key: _skillsKey,
-                    child: const CapabilitiesSection(),
-                  ),
+                    // Capabilities
+                    KeyedSubtree(
+                      key: _skillsKey,
+                      child: const CapabilitiesSection(),
+                    ),
 
-                  // Work
-                  KeyedSubtree(
-                    key: _workKey,
-                    child: const WorkSection(),
-                  ),
+                    // Work
+                    KeyedSubtree(
+                      key: _workKey,
+                      child: const WorkSection(),
+                    ),
 
-                  // Contact + Footer
-                  KeyedSubtree(
-                    key: _contactKey,
-                    child: const ContactSection(),
-                  ),
-                ],
+                    // Contact + Footer
+                    KeyedSubtree(
+                      key: _contactKey,
+                      child: const ContactSection(),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
